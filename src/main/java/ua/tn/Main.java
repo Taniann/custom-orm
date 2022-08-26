@@ -13,13 +13,15 @@ public class Main {
         var entity1 = firstSession.find(Product.class, 2);
         var entity2 = firstSession.find(Product.class, 2);
         System.out.println(entity1 == entity2);
+        entity1.setName("new name");
+        System.out.println(entity1);
         firstSession.close();
 
-        var secondSession = sessionFactory.createSession();
+       /* var secondSession = sessionFactory.createSession();
         var entity3 = secondSession.find(Product.class, 2);
         System.out.println(entity3 == entity2);
         System.out.println(entity3.equals(entity2));
-        secondSession.close();
+        secondSession.close();*/
     }
 
     private static DataSource initializeDataSource() {
